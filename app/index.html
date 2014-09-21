@@ -1,0 +1,162 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+  <meta charset="utf-8">
+  <title>COMSOLiD 7</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/carousel.css">
+  <!-- endbuild -->
+
+  <!-- <link rel="stylesheet" href="styles/main.css">  -->
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body ng-app="comsolid7ReleaseNotesApp">
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+  <!-- Add your site or application content here -->
+  <div class="navbar-wrapper">
+    <div class="container">
+
+      <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">{{encontro}}</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Início</a>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown">Páginas <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li>
+                      <a ng-href="#/interface">Interface</a>
+                  </li>
+                  <li>
+                      <a href="#/multimidia">Multimídia</a>
+                  </li>
+                  <li>
+                      <a href="#/jogos">Jogos Livres</a>
+                  </li>
+                  <li>
+                      <a href="#/escritorio">Escritório</a>
+                  </li>
+                  <li>
+                      <a href="#/diversos">Diversos</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+    <!-- Carousel
+    !HACK: Usando carousel para simplificar colocar uma imagem como plano de fundo do texto
+    -->
+    <div class="carousel slide" data-ride="carousel" ng-if="showCarousel()">
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="/img/carousel-main-2.jpg" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Ubuntu COMSOLiD 7</h1>
+              <p>Bem vindo ao mundo livre do COMSOLiD. Aqui você irá encontrar
+                  tudo sobre nossa distro. Navegue nos itens abaixo e veja os
+                  aplicativos disponíveis.</p>
+              <div class="btn-group">
+                  <a class="btn btn-lg btn-primary" href="http://comsolid.org"
+                      role="button" target="_blank">Site Oficial
+                  </a>
+                  <a class="btn btn-lg btn-default" href="http://twitter.com/#!/comsolid"
+                      role="button" target="_blank"><i class="fa fa-twitter-square"></i> Twitter
+                  </a>
+                  <a class="btn btn-lg btn-default" href="http://facebook.com/comsolid"
+                      role="button" target="_blank"><i class="fa fa-facebook-square"></i> Facebook
+                  </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /.carousel -->
+
+    <div class="container marketing">
+
+
+        <div ng-view=""></div>
+
+        <!-- FOOTER -->
+        <hr class="featurette-divider">
+        <footer>
+            <p class="pull-right"><a href="#">Back to top</a></p>
+            <p>
+                {{encontro}} - Comunidade Maracanauense de Software Livre e Inclusão Digital.
+                |
+                <a href="http://comsolid.org"
+                    role="button" target="_blank">comsolid.org
+                </a>
+            </p>
+        </footer>
+    </div>
+
+  <!-- build:js(.) scripts/oldieshim.js -->
+  <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <![endif]-->
+  <!-- endbuild -->
+
+  <!-- build:js(.) scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <script src="libs/ui-bootstrap-tpls.min.js"></script>
+
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <script src="scripts/app.js"></script>
+  <script src="scripts/controllers/main.js"></script>
+  <script src="scripts/controllers/about.js"></script>
+  <script src="scripts/controllers/pages.js"></script>
+  <script src="scripts/controllers/jogos.js"></script>
+  <script src="scripts/directives/disable-animation.js"></script>
+  <!-- endbuild -->
+</body>
+
+</html>
