@@ -40,6 +40,14 @@ angular
                 templateUrl: 'views/jogos.html',
                 controller: 'JogosCtrl'
             })
+            .when('/escritorio', {
+                templateUrl: 'views/escritorio.html',
+                controller: 'PagesCtrl'
+            })
+            .when('/diversos', {
+                templateUrl: 'views/diversos.html',
+                controller: 'PagesCtrl'
+            })
             .otherwise({
                 redirectTo: '/'
             });
