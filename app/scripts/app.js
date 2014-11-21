@@ -30,7 +30,7 @@ angular
             })
             .when('/interface', {
                 templateUrl: 'views/interface.html',
-                controller: 'PagesCtrl'
+                controller: 'InterfaceCtrl'
             })
             .when('/multimidia', {
                 templateUrl: 'views/multimidia.html',

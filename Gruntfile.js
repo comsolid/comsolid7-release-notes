@@ -237,10 +237,15 @@ module.exports = function (grunt) {
     imagemin: {
       dist: {
         files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.{png,jpg,jpeg,gif}',
-          dest: '<%= yeoman.dist %>/images'
+            expand: true,
+            cwd: '<%= yeoman.app %>/images',
+            src: '{,*/}*.{png,jpg,jpeg,gif}',
+            dest: '<%= yeoman.dist %>/images'
+        },{
+            expand: true,
+            cwd: '<%= yeoman.app %>/img',
+            src: '{,*/}*.{png,jpg,jpeg,gif}',
+            dest: '<%= yeoman.dist %>/img'
         }]
       }
     },
@@ -306,8 +311,9 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            'views/{,*/}*.html',
+            //'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
+            'img/{,*/}*.{webp}',
             'fonts/*'
           ]
         }, {
@@ -320,6 +326,11 @@ module.exports = function (grunt) {
           cwd: 'bower_components/bootstrap/dist',
           src: 'fonts/*',
           dest: '<%= yeoman.dist %>'
+        }, {
+            expand: true,
+            cwd: 'bower_components/font-awesome',
+            src: 'fonts/*',
+            dest: '<%= yeoman.dist %>'
         }]
       },
       styles: {
@@ -351,7 +362,28 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    inline_angular_templates: {
+        dist: {
+            options: {
+                base: 'app/views', // (Optional) ID of the <script> tag will be relative to this folder. Default is project dir.
+                prefix: 'views/',            // (Optional) Prefix path to the ID. Default is empty string.
+                selector: 'body',       // (Optional) CSS selector of the element to use to insert the templates. Default is `body`.
+                method: 'prepend',       // (Optional) DOM insert method. Default is `prepend`.
+                unescape: {             // (Optional) List of escaped characters to unescape
+                    '&lt;': '<',
+                    '&gt;': '>',
+                    '&apos;': '\'',
+                    '&amp;': '&'
+                }
+            },
+            files: {
+                'dist/index.html': ['app/views/*.html']
+            }
+        }
     }
+
   });
 
 
@@ -392,6 +424,7 @@ module.exports = function (grunt) {
     'concat',
     'ngAnnotate',
     'copy:dist',
+    'inline_angular_templates:dist',
     'cdnify',
     'cssmin',
     'uglify',
@@ -405,4 +438,6 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.loadNpmTasks('grunt-inline-angular-templates');
 };
